@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planet Pulse — Tracking Earth's Health</title>
+  <meta name="description" content="An immersive environmental intelligence platform visualizing how pollution is degrading our planet's health across air, water, soil, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <span class="nav-logo-pulse"></span>
+    <span class="nav-logo-text">PLANET PULSE</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#pollution">Pollution</a></li>
+    <li><a href="#simulations">Simulations</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#action">Take Action</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="theme-icon">☀️</span>
+    </button>
+    <a href="#action" class="nav-cta">Act Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="heroCanvas" class="hero-canvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      PLANETARY HEALTH CRISIS · LIVE
+    </div>
+    <h1 class="hero-title">
+      The Planet Is<br />
+      <span class="hero-title-accent">Running a Fever</span>
+    </h1>
+    <p class="hero-subtitle">
+      Earth's vital systems are failing. Pollution has become a planetary health emergency — degrading our air, water, soil, and every living system that sustains life.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value" data-target="8">0</span><span class="hero-stat-unit">M+</span>
+        <span class="hero-stat-label">Deaths from air pollution annually</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value" data-target="11">0</span><span class="hero-stat-unit">M tons</span>
+        <span class="hero-stat-label">Plastic entering oceans each year</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value" data-target="1.5">0</span><span class="hero-stat-unit">°C</span>
+        <span class="hero-stat-label">Temperature rise above pre-industrial</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#pollution" class="btn btn-primary">Explore Pollution Types</a>
+      <a href="#dashboard" class="btn btn-ghost">View Health Dashboard</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-indicator-line"></div>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="dashboard" id="dashboard">
+  <div class="section-header">
+    <div class="section-tag">DIAGNOSTIC PANEL</div>
+    <h2>Planet Health Dashboard</h2>
+    <p>Real-time environmental vitals — a full-spectrum assessment of Earth's condition</p>
+  </div>
+  <div class="dashboard-grid">
+    <div class="dashboard-planet-container">
+      <div class="dashboard-planet" id="dashPlanet">
+        <canvas id="planetCanvas" width="280" height="280"></canvas>
+        <div class="planet-rings">
+          <div class="planet-ring ring-1" id="ring1"></div>
+          <div class="planet-ring ring-2" id="ring2"></div>
+          <div class="planet-ring ring-3" id="ring3"></div>
+        </div>
+        <div class="planet-health-score">
+          <span class="planet-score-value" id="overallScore">42</span>
+          <span class="planet-score-label">HEALTH SCORE</span>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-vitals">
+      <div class="vital-card" data-metric="air">
+        <div class="vital-header">
+          <span class="vital-icon">🌫️</span>
+          <span class="vital-name">Air Quality Index</span>
+          <span class="vital-badge critical">CRITICAL</span>
+        </div>
+        <div class="vital-bar-track">
+          <div class="vital-bar" style="--pct:72%; --clr:#ff4757"></div>
+        </div>
+        <div class="vital-values">
+          <span class="vital-val">AQI 187</span>
+          <span class="vital-pct">72% Degraded</span>
+        </div>
+      </div>
+      <div class="vital-card" data-metric="water">
+        <div class="vital-header">
+          <span class="vital-icon">💧</span>
+          <span class="vital-name">Ocean & Water Health</span>
+          <span class="vital-badge warning">WARNING</span>
+        </div>
+        <div class="vital-bar-track">
+          <div class="vital-bar" style="--pct:58%; --clr:#ffa502"></div>
+        </div>
+        <div class="vital-values">
+          <span class="vital-val">pH 7.9 ↓</span>
+          <span class="vital-pct">58% Degraded</span>
+        </div>
+      </div>
+      <div class="vital-card" data-metric="soil">
+        <div class="vital-header">
+          <span class="vital-icon">🌱</span>
+          <span class="vital-name">Soil & Land Health</span>
+          <span class="vital-badge warning">WARNING</span>
+        </div>
+        <div class="vital-bar-track">
+          <div class="vital-bar" style="--pct:61%; --clr:#ffa502"></div>
+        </div>
+        <div class="vital-values">
+          <span class="vital-val">33% Degraded</span>
+          <span class="vital-pct">61% Compromised</span>
+        </div>
+      </div>
+      <div class="vital-card" data-metric="biodiversity">
+        <div class="vital-header">
+          <span class="vital-icon">🦋</span>
+          <span class="vital-name">Biodiversity Index</span>
+          <span class="vital-badge critical">CRITICAL</span>
+        </div>
+        <div class="vital-bar-track">
+          <div class="vital-bar" style="--pct:69%; --clr:#ff4757"></div>
+        </div>
+        <div class="vital-values">
+          <span class="vital-val">1M species at risk</span>
+          <span class="vital-pct">69% Decline</span>
+        </div>
+      </div>
+      <div class="vital-card" data-metric="waste">
+        <div class="vital-header">
+          <span class="vital-icon">♻️</span>
+          <span class="vital-name">Waste Load</span>
+          <span class="vital-badge critical">CRITICAL</span>
+        </div>
+        <div class="vital-bar-track">
+          <div class="vital-bar" style="--pct:81%; --clr:#ff4757"></div>
+        </div>
+        <div class="vital-values">
+          <span class="vital-val">2.01B tons/year</span>
+          <span class="vital-pct">81% Overloaded</span>
+        </div>
+      </div>
+      <div class="vital-card" data-metric="temp">
+        <div class="vital-header">
+          <span class="vital-icon">🌡️</span>
+          <span class="vital-name">Temperature Stress</span>
+          <span class="vital-badge warning">WARNING</span>
+        </div>
+        <div class="vital-bar-track">
+          <div class="vital-bar" style="--pct:55%; --clr:#ffa502"></div>
+        </div>
+        <div class="vital-values">
+          <span class="vital-val">+1.5°C above baseline</span>
+          <span class="vital-pct">55% Stressed</span>
+        </div>
+      </div>
+      <div class="vital-card" data-metric="noise">
+        <div class="vital-header">
+          <span class="vital-icon">🔊</span>
+          <span class="vital-name">Noise Stress Index</span>
+          <span class="vital-badge moderate">MODERATE</span>
+        </div>
+        <div class="vital-bar-track">
+          <div class="vital-bar" style="--pct:44%; --clr:#2ed573"></div>
+        </div>
+        <div class="vital-values">
+          <span class="vital-val">74 dB avg urban</span>
+          <span class="vital-pct">44% Elevated</span>
+        </div>
+      </div>
+      <div class="vital-card" data-metric="plastic">
+        <div class="vital-header">
+          <span class="vital-icon">🏭</span>
+          <span class="vital-name">Plastic Accumulation</span>
+          <span class="vital-badge critical">CRITICAL</span>
+        </div>
+        <div class="vital-bar-track">
+          <div class="vital-bar" style="--pct:78%; --clr:#ff4757"></div>
+        </div>
+        <div class="vital-values">
+          <span class="vital-val">380M tons produced/yr</span>
+          <span class="vital-pct">78% Critical</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLLUTION CATEGORIES -->
+<section class="pollution-section" id="pollution">
+  <div class="section-header">
+    <div class="section-tag">POLLUTION ATLAS</div>
+    <h2>Major Pollution Categories</h2>
+    <p>Nine interlinked threats — each silently dismantling the delicate systems that sustain life on Earth</p>
+  </div>
+  <div class="pollution-grid">
+    <div class="pollution-card" data-type="air" onclick="openSim('air')">
+      <div class="pollution-card-bg"></div>
+      <div class="pollution-card-glow"></div>
+      <div class="pollution-card-icon">🌫️</div>
+      <h3>Air Pollution</h3>
+      <p>Toxic gases, particulates, and aerosols choking urban and rural air alike, triggering respiratory disease worldwide.</p>
+      <div class="pollution-severity">
+        <span class="severity-label">Severity</span>
+        <div class="severity-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span>
+        </div>
+        <span class="severity-text critical">CRITICAL</span>
+      </div>
+      <button class="explore-btn">Explore Simulation →</button>
+    </div>
+    <div class="pollution-card" data-type="water" onclick="openSim('water')">
+      <div class="pollution-card-bg"></div>
+      <div class="pollution-card-glow"></div>
+      <div class="pollution-card-icon">💧</div>
+      <h3>Water Pollution</h3>
+      <p>Industrial discharge, agricultural runoff, and plastic waste turning Earth's lifeblood toxic for all species.</p>
+      <div class="pollution-severity">
+        <span class="severity-label">Severity</span>
+        <div class="severity-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+        </div>
+        <span class="severity-text warning">HIGH</span>
+      </div>
+      <button class="explore-btn">Explore Simulation →</button>
+    </div>
+    <div class="pollution-card" data-type="soil" onclick="openSim('soil')">
+      <div class="pollution-card-bg"></div>
+      <div class="pollution-card-glow"></div>
+      <div class="pollution-card-icon">🌱</div>
+      <h3>Soil Pollution</h3>
+      <p>Heavy metals, pesticides, and industrial waste seeping deep into earth, killing the ground that feeds us.</p>
+      <div class="pollution-severity">
+        <span class="severity-label">Severity</span>
+        <div class="severity-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+        </div>
+        <span class="severity-text warning">HIGH</span>
+      </div>
+      <button class="explore-btn">Explore Simulation →</button>
+    </div>
+    <div class="pollution-card" data-type="noise" onclick="openSim('noise')">
+      <div class="pollution-card-bg"></div>
+      <div class="pollution-card-glow"></div>
+      <div class="pollution-card-icon">🔊</div>
+      <h3>Noise Pollution</h3>
+      <p>Unrelenting urban soundscapes causing cardiovascular stress, cognitive impairment, and wildlife displacement.</p>
+      <div class="pollution-severity">
+        <span class="severity-label">Severity</span>
+        <div class="severity-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="severity-text moderate">MODERATE</span>
+      </div>
+      <button class="explore-btn">Explore Simulation →</button>
+    </div>
+    <div class="pollution-card" data-type="light" onclick="openSim('light')">
+      <div class="pollution-card-bg"></div>
+      <div class="pollution-card-glow"></div>
+      <div class="pollution-card-icon">💡</div>
+      <h3>Light Pollution</h3>
+      <p>Artificial brightness erasing night skies, disrupting circadian rhythms of humans, animals, and entire ecosystems.</p>
+      <div class="pollution-severity">
+        <span class="severity-label">Severity</span>
+        <div class="severity-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="severity-text moderate">MODERATE</span>
+      </div>
+      <button class="explore-btn">Explore Simulation →</button>
+    </div>
+    <div class="pollution-card" data-type="plastic" onclick="openSim('plastic')">
+      <div class="pollution-card-bg"></div>
+      <div class="pollution-card-glow"></div>
+      <div class="pollution-card-icon">🏭</div>
+      <h3>Plastic Pollution</h3>
+      <p>Microplastics infiltrating every ecosystem on Earth — from ocean trenches to mountain summits and human bloodstreams.</p>
+      <div class="pollution-severity">
+        <span class="severity-label">Severity</span>
+        <div class="severity-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span>
+        </div>
+        <span class="severity-text critical">CRITICAL</span>
+      </div>
+      <button class="explore-btn">Explore Simulation →</button>
+    </div>
+    <div class="pollution-card" data-type="chemical" onclick="openSim('chemical')">
+      <div class="pollution-card-bg"></div>
+      <div class="pollution-card-glow"></div>
+      <div class="pollution-card-icon">⚗️</div>
+      <h3>Chemical Pollution</h3>
+      <p>Synthetic toxins, pesticides, and persistent organic pollutants bioaccumulating through food chains and water sources.</p>
+      <div class="pollution-severity">
+        <span class="severity-label">Severity</span>
+        <div class="severity-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+        </div>
+        <span class="severity-text warning">HIGH</span>
+      </div>
+      <button class="explore-btn">Explore Simulation →</button>
+    </div>
+    <div class="pollution-card" data-type="thermal" onclick="openSim('thermal')">
+      <div class="pollution-card-bg"></div>
+      <div class="pollution-card-glow"></div>
+      <div class="pollution-card-icon">🌡️</div>
+      <h3>Thermal Pollution</h3>
+      <p>Industrial cooling processes elevating water temperatures, triggering mass die-offs of aquatic ecosystems.</p>
+      <div class="pollution-severity">
+        <span class="severity-label">Severity</span>
+        <div class="severity-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="severity-text moderate">MODERATE</span>
+      </div>
+      <button class="explore-btn">Explore Simulation →</button>
+    </div>
+    <div class="pollution-card" data-type="radiation" onclick="openSim('radiation')">
+      <div class="pollution-card-bg"></div>
+      <div class="pollution-card-glow"></div>
+      <div class="pollution-card-icon">☢️</div>
+      <h3>Radiation Pollution</h3>
+      <p>Ionizing and non-ionizing radiation from nuclear waste and electromagnetic fields affecting biological systems.</p>
+      <div class="pollution-severity">
+        <span class="severity-label">Severity</span>
+        <div class="severity-dots">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="severity-text moderate">ELEVATED</span>
+      </div>
+      <button class="explore-btn">Explore Simulation →</button>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULATIONS MODAL -->
+<div class="sim-modal" id="simModal">
+  <div class="sim-modal-backdrop" onclick="closeSim()"></div>
+  <div class="sim-modal-inner">
+    <button class="sim-close" onclick="closeSim()">✕</button>
+    <div class="sim-content" id="simContent"></div>
+  </div>
+</div>
+
+<!-- COMPARISON -->
+<section class="comparison-section" id="comparison">
+  <div class="section-header">
+    <div class="section-tag">BEFORE & AFTER</div>
+    <h2>Earth: Then vs. Now</h2>
+    <p>Drag the slider to reveal the devastating transformation pollution has caused</p>
+  </div>
+  <div class="comparison-tabs">
+    <button class="comp-tab active" data-comp="sky">Sky</button>
+    <button class="comp-tab" data-comp="river">River</button>
+    <button class="comp-tab" data-comp="soil">Soil</button>
+    <button class="comp-tab" data-comp="ocean">Ocean</button>
+  </div>
+  <div class="comparison-container">
+    <canvas id="compCanvas" width="900" height="400"></canvas>
+    <div class="comp-slider-wrapper">
+      <div class="comp-divider" id="compDivider"></div>
+      <input type="range" class="comp-slider" id="compSlider" min="0" max="100" value="50" />
+    </div>
+    <div class="comp-labels">
+      <span class="comp-label-left">CLEAN</span>
+      <span class="comp-label-right">POLLUTED</span>
+    </div>
+  </div>
+</section>
+
+<!-- DATA STORYTELLING -->
+<section class="story-section" id="story">
+  <div class="section-header">
+    <div class="section-tag">DATA NARRATIVE</div>
+    <h2>The Pollution Story</h2>
+    <p>How contamination spreads, compounds, and cascades through every living system on Earth</p>
+  </div>
+  <div class="story-timeline">
+    <div class="story-item reveal-item">
+      <div class="story-icon-wrap"><span>🏭</span></div>
+      <div class="story-content-wrap">
+        <div class="story-tag">ORIGIN</div>
+        <h3>Where It Begins</h3>
+        <p>Industry, transportation, agriculture, and waste management are the primary engines of planetary pollution. Over 70% of all pollution is anthropogenic — generated by human systems designed without considering their long-term impact on Earth's biochemistry.</p>
+        <div class="story-bar-chart">
+          <div class="story-bar-item"><div class="story-bar" style="--w:75%"><span>Industry</span></div><span>75%</span></div>
+          <div class="story-bar-item"><div class="story-bar" style="--w:60%"><span>Transport</span></div><span>60%</span></div>
+          <div class="story-bar-item"><div class="story-bar" style="--w:52%"><span>Agriculture</span></div><span>52%</span></div>
+          <div class="story-bar-item"><div class="story-bar" style="--w:38%"><span>Waste</span></div><span>38%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="story-item reveal-item">
+      <div class="story-icon-wrap"><span>🌐</span></div>
+      <div class="story-content-wrap">
+        <div class="story-tag">SPREAD</div>
+        <h3>How It Propagates</h3>
+        <p>Pollution does not stay where it starts. Atmospheric currents carry particulates across continents. Ocean gyres concentrate plastic from thousands of miles away. Groundwater carries chemical contaminants through aquifer networks spanning entire regions.</p>
+        <div class="spread-viz" id="spreadViz"></div>
+      </div>
+    </div>
+    <div class="story-item reveal-item">
+      <div class="story-icon-wrap"><span>🧬</span></div>
+      <div class="story-content-wrap">
+        <div class="story-tag">ECOSYSTEM IMPACT</div>
+        <h3>What It Does to Life</h3>
+        <p>Pollutants disrupt hormonal systems, damage DNA, bleach coral reefs, acidify oceans, collapse food webs, and push species toward extinction at 1,000 times the natural background rate. The web of life is unraveling.</p>
+        <div class="impact-bubbles">
+          <div class="impact-bubble b1">Coral Bleaching<br/><strong>+400%</strong></div>
+          <div class="impact-bubble b2">Species Loss<br/><strong>×1000</strong></div>
+          <div class="impact-bubble b3">Dead Zones<br/><strong>700+</strong></div>
+          <div class="impact-bubble b4">Forest Loss<br/><strong>10M ha/yr</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="story-item reveal-item">
+      <div class="story-icon-wrap"><span>🫁</span></div>
+      <div class="story-content-wrap">
+        <div class="story-tag">HUMAN HEALTH</div>
+        <h3>The Human Cost</h3>
+        <p>9 out of 10 people breathe air that exceeds WHO safety limits. Pollution causes 1 in 6 deaths globally. Childhood exposure to pollutants permanently reduces IQ, lung capacity, and life expectancy.</p>
+        <div class="human-health-grid">
+          <div class="health-stat"><span>1 in 6</span><p>Deaths linked to pollution</p></div>
+          <div class="health-stat"><span>92%</span><p>People breathing unsafe air</p></div>
+          <div class="health-stat"><span>$4.6T</span><p>Annual economic cost</p></div>
+          <div class="health-stat"><span>15yrs</span><p>Avg life expectancy loss</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT METRICS -->
+<section class="metrics-section" id="impact">
+  <div class="section-header">
+    <div class="section-tag">LIVE METRICS</div>
+    <h2>The Numbers That Cannot Be Ignored</h2>
+    <p>Every statistic below represents a real, measurable failure of our planetary systems</p>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric-card reveal-item" data-target="8000000" data-label="Deaths from air pollution annually" data-icon="🌫️" data-unit="lives">
+      <div class="metric-icon">🌫️</div>
+      <div class="metric-value-wrap">
+        <span class="metric-value">0</span>
+        <span class="metric-unit">lives/yr</span>
+      </div>
+      <p class="metric-label">Deaths from air pollution annually</p>
+    </div>
+    <div class="metric-card reveal-item" data-target="11000000" data-label="Tons of plastic entering oceans yearly" data-icon="🏭" data-unit="tons">
+      <div class="metric-icon">🏭</div>
+      <div class="metric-value-wrap">
+        <span class="metric-value">0</span>
+        <span class="metric-unit">tons/yr</span>
+      </div>
+      <p class="metric-label">Tons of plastic entering oceans yearly</p>
+    </div>
+    <div class="metric-card reveal-item" data-target="2000000000" data-label="People without access to safe drinking water" data-icon="💧" data-unit="">
+      <div class="metric-icon">💧</div>
+      <div class="metric-value-wrap">
+        <span class="metric-value">0</span>
+        <span class="metric-unit">people</span>
+      </div>
+      <p class="metric-label">People without safe drinking water</p>
+    </div>
+    <div class="metric-card reveal-item" data-target="33" data-label="Percentage of global soils degraded" data-icon="🌱" data-unit="%">
+      <div class="metric-icon">🌱</div>
+      <div class="metric-value-wrap">
+        <span class="metric-value">0</span>
+        <span class="metric-unit">%</span>
+      </div>
+      <p class="metric-label">Global soils severely degraded</p>
+    </div>
+    <div class="metric-card reveal-item" data-target="1000000" data-label="Species currently threatened with extinction" data-icon="🦋" data-unit="">
+      <div class="metric-icon">🦋</div>
+      <div class="metric-value-wrap">
+        <span class="metric-value">0</span>
+        <span class="metric-unit">species</span>
+      </div>
+      <p class="metric-label">Species threatened with extinction</p>
+    </div>
+    <div class="metric-card reveal-item" data-target="700" data-label="Oceanic dead zones caused by pollution" data-icon="🐠" data-unit="">
+      <div class="metric-icon">🐠</div>
+      <div class="metric-value-wrap">
+        <span class="metric-value">0</span>
+        <span class="metric-unit">zones</span>
+      </div>
+      <p class="metric-label">Oceanic dead zones from pollution</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="action">
+  <canvas id="ctaCanvas" class="cta-canvas"></canvas>
+  <div class="cta-content">
+    <div class="section-tag">TAKE ACTION</div>
+    <h2>Protect the Planet's Health</h2>
+    <p>Pollution is not inevitable. Every system that creates it can be redesigned. The question is whether we will act before the damage becomes irreversible.</p>
+    <div class="cta-cards">
+      <div class="cta-card">
+        <div class="cta-card-icon">📚</div>
+        <h3>Learn More</h3>
+        <p>Deepen your understanding of pollution science and its systemic causes</p>
+        <a href="https://www.unep.org" target="_blank" rel="noopener" class="btn btn-outline">Visit UNEP</a>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-icon">📡</div>
+        <h3>Share This</h3>
+        <p>Spread awareness and help others understand the planetary health crisis</p>
+        <button class="btn btn-outline" onclick="sharesite()">Share Planet Pulse</button>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-icon">💚</div>
+        <h3>Support Action</h3>
+        <p>Connect with organizations fighting for clean air, water, and a livable future</p>
+        <a href="https://www.greenpeace.org" target="_blank" rel="noopener" class="btn btn-outline">Take the Pledge</a>
+      </div>
+    </div>
+    <div class="cta-quote">
+      <blockquote>"We are the first generation to feel the effect of climate change and the last generation that can do something about it."</blockquote>
+      <cite>— Barack Obama</cite>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <span class="nav-logo-pulse"></span>
+      <span>PLANET PULSE</span>
+    </div>
+    <p>An environmental intelligence platform designed to visualize and communicate the planetary health crisis.</p>
+    <p class="footer-note">Data sourced from WHO, UNEP, IPBES, NASA, NOAA, and peer-reviewed climate science literature.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

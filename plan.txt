@@ -1,0 +1,231 @@
+{
+You are a senior UI/UX engineer and prompt architect. Your job is to
+transform the inputs given to you into a single, exhaustive,
+production-ready prompt for a vibe coding tool (Stitch). Follow these
+permanent rules without exception:
+1. DESIGN REFERENCE ANALYSIS — Visit the design reference link provided.
+Extract ONLY visual information: color palette (exact hex values if
+possible), typography style (serif/sans-serif, weight, sizing hierarchy),
+spacing and layout patterns, component styles (buttons, cards, navbars,
+etc.), animation/interaction feel, overall aesthetic mood (minimal,
+brutalist, glassmorphic, etc.). Do NOT extract any content, copy, or
+functional ideas from the reference. It is a visual bible only.
+2. IDEA SOURCE — The website concept, purpose, features, pages, and
+functionality come EXCLUSIVELY from the raw prompt. Do not let the
+design reference influence what the website does or contains.
+3. OUTPUT FORMAT — Produce one single refined prompt in this order:
+a. Project Overview (from raw prompt only)
+b. Visual Language (from design reference only)
+c. Page-by-Page UI Plan (sections, components, layout per page)
+d. Component Specs (buttons, typography scale, color tokens, spacing)
+e. Build Instructions for Stitch (step-by-step, start building now)
+4. Be specific, not vague. No placeholders in output. Every color, font
+style, and spacing decision must be explicitly defined.
+5. End with: "Now analyze the design reference link visually, then begin
+building the UI in Stitch immediately without asking any clarifying
+questions."
+}
+Raw Prompt: {Create a highly modern, sleek, intuitive, and visually stunning website about the degrading health of our planet caused by all major types of pollution.
+
+The website should feel premium, futuristic, and immersive, with a strong environmental storytelling experience. It should be designed for maximum clarity, user engagement, and educational impact. Make the UI elegant, minimal, and polished, with smooth transitions, subtle animations, glassmorphism/neumorphism-inspired cards, clean typography, and a refined color palette inspired by nature, earth, ocean, smoke, and warning tones.
+
+Main goal:
+Build a website that helps users understand how pollution is damaging the planet’s health, while making the experience interactive, emotional, and easy to explore.
+
+Core concept:
+The website should present “Planet Health” like a living body or patient dashboard, showing how different pollution types affect air, water, soil, noise, light, plastic, chemical, and thermal balance. Each type of pollution must have its own visualization, animation, or simulation so users can clearly understand the impact.
+
+Design direction:
+- Very modern, sleek, premium, and intuitive
+- Dark mode by default with elegant environmental gradients
+- Optional light mode with soft eco-inspired tones
+- Smooth scrolling and parallax motion
+- Glassmorphism panels with subtle blur and depth
+- Clean hero section with strong headline and immersive background motion
+- High-end editorial layout mixed with data-driven UI
+- Responsive for desktop, tablet, and mobile
+- Accessible, readable, and easy to navigate
+
+Website structure:
+
+1. Hero section
+- Large cinematic headline such as:
+  “The Planet Is Running a Fever”
+  or
+  “Tracking the Health of Our Planet”
+- Subheading explaining that pollution is damaging Earth’s systems
+- Animated background showing Earth, smoke, waves, particles, or a living planet pulse
+- Strong CTA buttons:
+  - Explore Pollution Types
+  - View Planet Health Dashboard
+- Add a subtle scroll indicator
+
+2. Planet health dashboard
+Create a central dashboard that represents the Earth’s condition like a medical or environmental diagnostic panel.
+Include:
+- Overall Planet Health Score
+- Air Quality Index
+- Water Health
+- Soil Health
+- Biodiversity Impact
+- Waste Load
+- Temperature Stress
+- Noise Stress
+- Visual meter or orbital ring around a planet icon
+
+The dashboard should update dynamically as users explore different pollution types.
+
+3. Pollution categories section
+Create interactive cards for each major pollution type:
+- Air Pollution
+- Water Pollution
+- Soil Pollution
+- Noise Pollution
+- Light Pollution
+- Plastic Pollution
+- Chemical Pollution
+- Thermal Pollution
+- Radiation Pollution
+
+Each card should include:
+- Icon
+- Short description
+- Severity indicator
+- Hover animation
+- “Explore simulation” action
+
+4. Simulations / visualizations for each pollution type
+This is the most important part.
+
+For every pollution type, create a unique visualization or simulation:
+
+Air Pollution
+- Animated city skyline with smoke, smog layers, traffic emissions, and floating particles
+- Show lung/air-quality-style visualization
+- Include AQI-style meter that worsens as emissions rise
+
+Water Pollution
+- Animated river/ocean scene with floating waste, oil slicks, and discoloration spread
+- Water clarity changes over time
+- Include ripple, contamination, and marine-life impact animation
+
+Soil Pollution
+- Cross-section soil visualization
+- Show chemicals seeping into ground layers
+- Show reduced plant growth and contaminated roots
+- Use layered earth diagram
+
+Noise Pollution
+- Soundwave-based simulation
+- Urban environment with vibrating UI elements
+- Visual pressure rings expanding from traffic, industry, and construction sources
+
+Light Pollution
+- Night sky simulation with washed-out stars and city glow
+- Demonstrate how excessive brightness hides the stars and affects ecosystems
+
+Plastic Pollution
+- Ocean and land waste accumulation simulation
+- Floating plastic objects, microplastic particles, and landfill overflow
+- Show wildlife entanglement impact in a sensitive, educational way
+
+Chemical Pollution
+- Hazard map / laboratory spill style visualization
+- Chemical diffusion spreading across air/water/soil layers
+- Use caution-style scientific visuals
+
+Thermal Pollution
+- Heat map visualization with warming water bodies and temperature overlays
+- Show ecosystem stress from excess industrial heat
+
+Radiation Pollution
+- Geiger-style visual elements
+- Energy field / radiation rings visualization
+- Present it as scientific and educational, not sensational
+
+All simulations should feel polished, lightweight, and interactive. They should not be childish. They should be visually sophisticated, data-driven, and educational.
+
+5. Data storytelling section
+Create scroll-driven storytelling with sections like:
+- Where pollution comes from
+- How pollution spreads
+- What it does to ecosystems
+- How it affects human health
+- What happens if we do nothing
+- What change can do
+
+Use animated charts, timeline transitions, map-style visuals, and counters for impact statistics.
+
+6. Comparison section
+Show before-and-after visuals:
+- Clean Earth vs polluted Earth
+- Healthy river vs contaminated river
+- Clear sky vs smoggy sky
+- Healthy soil vs degraded soil
+
+Use sliders, split-screen comparisons, or interactive reveal effects.
+
+7. Impact metrics section
+Include animated statistics such as:
+- Air quality decline
+- Ocean waste growth
+- Soil degradation
+- Noise exposure
+- Plastic waste accumulation
+- Temperature increase
+- Wildlife harm
+- Human health burden
+
+Make the numbers animate on scroll.
+
+8. Call to action section
+End with a strong, emotional, modern CTA:
+- “Protect the Planet’s Health”
+- “Reduce Pollution Before It Becomes Irreversible”
+- “Take Action Now”
+
+Include buttons for:
+- Learn More
+- Share the Site
+- Support Clean Initiatives
+
+Visual style requirements:
+- Sleek futuristic environmental aesthetic
+- Premium motion design
+- Elegant gradients
+- Soft glows, atmospheric haze, and particle effects
+- High contrast for readability
+- Smooth easing in all transitions
+- No clutter, no generic stock-looking design
+- No childish illustrations unless used minimally and tastefully
+- Strong visual hierarchy
+- Beautiful spacing and alignment
+
+Interaction requirements:
+- Hover animations on every interactive element
+- Scroll-based reveal effects
+- Smooth transitions between sections
+- Tabs or side navigation for pollution categories
+- Tooltips with scientific explanations
+- Simulation controls such as intensity sliders, play/pause, and reset
+- Optional “planet health mode” that changes the dashboard based on pollution severity
+
+Content tone:
+- Serious, educational, urgent, and inspiring
+- Must highlight that pollution is not just an environmental issue but a planetary health crisis
+- Use concise and powerful copy
+
+Technical requirements:
+- Fully responsive
+- Accessible
+- Fast-loading
+- Modern component-based structure
+- Clean reusable UI components
+- Animated charts and interactive simulation modules
+- Use a polished frontend approach suitable for a premium showcase website
+
+Overall experience:
+The final website should feel like a futuristic environmental intelligence platform that tracks the health of Earth. It should be immersive, beautiful, and highly intuitive, with interactive simulations for every pollution type, making the user feel like they are exploring the planet’s condition in real time.
+
+Make it look like a top-tier modern startup website mixed with a climate science dashboard, with cinematic visuals, elegant data presentation, and highly engaging interactive storytelling.}
+

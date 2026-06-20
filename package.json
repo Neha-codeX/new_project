@@ -1,0 +1,23 @@
+{
+  "name": "planet-pulse",
+  "version": "1.0.0",
+  "description": "Planet Pulse — An immersive environmental intelligence platform tracking Earth's health across all major pollution types.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . --listen 3000 --no-clipboard",
+    "start": "npx serve . --listen 3000 --no-clipboard",
+    "preview": "npx serve . --listen 3000"
+  },
+  "keywords": [
+    "environment",
+    "pollution",
+    "climate",
+    "data-visualization",
+    "planet-health"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.3"
+  }
+}
